@@ -7,7 +7,9 @@ import slippi as slp
 from slippi import Game
 from slippi.util import try_enum
 from slippi.id import InGameCharacter
-from slippi.id import Stage
+
+parsed_path = r'/home/beastman/Projects/Slippi-Dash/data/parsed.csv'
+db_path = r'/home/beastman/Projects/Slippi-Dash/data/game_database.sqlite3'
 
 def get_files():
     """
@@ -33,7 +35,7 @@ def check_parsed(games):
     Returns a list of new, unprocessed game files
     """
     new_games = list()
-    with open('./data/parsed.csv','r') as file:
+    with open(parsed_path,'r') as file:
         reader = csv.reader(file,delimiter=",")
         parsed = [x for [x] in reader]
         for game in games:
@@ -47,7 +49,7 @@ def processed(new_games):
     """
     Writes path to parsed.csv to skip next time processing
     """
-    with open('./data/parsed.csv','a') as file:
+    with open(parsed_path,'a') as file:
         writer = csv.writer(file)
         for game in new_games:
             writer.writerow([game])
@@ -107,13 +109,12 @@ def scrape_metadata(new_games): # may be possible to use event API to parse more
     return meta_df
 
 def append_table(table_name, data):
-    con = sqlite3.connect(r'./data/game_database.sqlite3')
+    con = sqlite3.connect(db_path)
     data.to_sql(
         table_name,
         con,
         if_exists='append',
-        index=True,
-        index_label="idx",
+        index=False,
         chunksize=1000
         )
 

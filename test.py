@@ -2,17 +2,26 @@ import slippi
 from slippi.id import InGameCharacter
 from slippi.id import Stage
 from slippi.metadata import Metadata
-from parse_data import get_files
 from enum import Enum
 from slippi.parse import parse
 from slippi.parse import ParseEvent
 import sqlite3
+import pandas as pd
+
 
 path = '/media/beastman/36E8AEA6E8AE63B9/Users/newco/Documents/Slippi/2021-12/Game_20211204T090000.slp'
 g = slippi.Game(path)
 char = g.metadata.players[0].characters
 stag = g.start.stage
 end = g.end
+
+con = sqlite3.connect(r'/home/beastman/Projects/Slippi-Dash/data/game_database.sqlite3')
+print(pd.read_sql("""
+    select * from metadata
+""",
+con=con))
+ 
+
 
 
 """

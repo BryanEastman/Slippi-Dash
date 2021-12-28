@@ -1,8 +1,0 @@
-from django.shortcuts import render
-from django.http import JsonResponse
-from dashboard.models import Order
-from django.core import serializers
-
-# Create your views here.
-def dashboard_with_pivot(request):
-    return render(request, 'dashboard_with_pivot.html',{})

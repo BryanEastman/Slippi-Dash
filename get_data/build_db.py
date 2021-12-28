@@ -1,15 +1,16 @@
 import sqlite3
 
+db_path = r'/home/beastman/Projects/Slippi-Dash/data/game_database.sqlite3'
+
 def build_db_meta():
     """
     creates the metadata table
     """
-    con = sqlite3.connect('./data/game_database.sqlite3')
+    con = sqlite3.connect(db_path)
     cur = con.cursor()
     cur.execute(
         """
         CREATE TABLE metadata (
-            idx INTEGER,
             date TEXT,
             path TEXT,
             duration_frames INTEGER,
@@ -34,7 +35,7 @@ def drop_table():
     """
     For testing purposes, drop table by name 
     """
-    con = sqlite3.connect('./data/game_database.sqlite3')
+    con = sqlite3.connect(db_path)
     cur = con.cursor()
     cur.execute(
         """
