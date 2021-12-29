@@ -1,6 +1,6 @@
 import sqlite3
 
-db_path = r'/home/beastman/Projects/Slippi-Dash/data/game_database.sqlite3'
+db_path = r'./data/game_database.sqlite3'
 
 def build_db_meta():
     """

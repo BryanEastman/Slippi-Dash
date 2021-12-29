@@ -8,8 +8,8 @@ from slippi import Game
 from slippi.util import try_enum
 from slippi.id import InGameCharacter
 
-parsed_path = r'/home/beastman/Projects/Slippi-Dash/data/parsed.csv'
-db_path = r'/home/beastman/Projects/Slippi-Dash/data/game_database.sqlite3'
+parsed_path = r'./data/parsed.csv'
+db_path = r'./data/game_database.sqlite3'
 
 def get_files():
     """
