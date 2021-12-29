@@ -3,10 +3,10 @@ Game Statistics dashboard for Super Smash Bros. Melee on Slippi
 
 This is primarily for personal use and built assuming only standard competitive rulesets on Slippi for Windows.
 
-Overall package is broken into a group of scripts for generating data and files to store them
+Overall package is broken into a group of scripts for generating data and files to store them in a database, which will serve as the base for other applications, namely dashboards.
 
 ## get_data
-scripts on the backend to aggregate and store data
+scripts to aggregate and store data
 
 ### parse_data
 - identifies all .slp game files from a given root directory
@@ -17,6 +17,3 @@ scripts on the backend to aggregate and store data
 
 ### build_db
 - SQLite database tables to contain data scraped with the parser
-
-## slippi_dash
-- Django application to interactively display game data
