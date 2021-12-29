@@ -16,9 +16,5 @@ scripts to aggregate and store data
 - saves a list of processed files by path into a csv
 
 ### build_db
-<<<<<<< HEAD
 - SQLite database tables to contain data scraped with the parser
 
-=======
-- SQLite database tables to contain data scraped with the parser
->>>>>>> 0de2e52ab96f930e02e3803398b6f8d517a75d48
