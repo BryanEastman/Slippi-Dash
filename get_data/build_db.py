@@ -10,7 +10,7 @@ def build_db_meta():
     cur = con.cursor()
     cur.execute(
         """
-        CREATE TABLE metadata (
+        CREATE TABLE IF NOT EXISTS metadata (
             date TEXT,
             path TEXT,
             duration_frames INTEGER,
@@ -33,7 +33,7 @@ def build_db_meta():
 
 def drop_table():
     """
-    For testing purposes, drop table by name 
+    For testing purposes, drops table
     """
     con = sqlite3.connect(db_path)
     cur = con.cursor()
@@ -46,6 +46,6 @@ def drop_table():
     con.close
 
 if __name__ == "__main__":
-    build_db_meta()
-    #drop_table()
+    #build_db_meta()
+    drop_table()
     None

@@ -25,9 +25,6 @@ def get_files():
             game_files = ([os.path.join(root,x) for x in files if x[-4:] == '.slp'])
     except NameError:
         print("Invalid Path")
-    if (len(game_files) < 1):
-        print("no files found")
-        return None
     return game_files
 
 def check_parsed(games):
@@ -43,6 +40,9 @@ def check_parsed(games):
                 games.remove(game)
             else:
                 new_games.append(game)
+    if len(new_games) < 1:
+        print('no new games found')
+        exit()
     return new_games
 
 def processed(new_games):
@@ -105,7 +105,6 @@ def scrape_metadata(new_games): # may be possible to use event API to parse more
             continue
         rows.append(row)
     meta_df = pd.DataFrame.from_dict(rows)
-    print(meta_df.head(10))
     return meta_df
 
 def append_table(table_name, data):
