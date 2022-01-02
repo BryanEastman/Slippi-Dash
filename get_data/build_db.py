@@ -43,9 +43,9 @@ def drop_table():
         """      
     )
     con.commit()
-    con.close
+    con.close()
 
 if __name__ == "__main__":
-    #build_db_meta()
     drop_table()
+    #build_db_meta()    
     None

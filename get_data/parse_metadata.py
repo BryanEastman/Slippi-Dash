@@ -22,9 +22,10 @@ def get_files():
         print('replays found:\n')
         for root,dirs,files in os.walk(path,topdown=True):            
             print('{}: {}'.format(root, sum([x.count('.slp',-4) for x in files])))
-            game_files = ([os.path.join(root,x) for x in files if x[-4:] == '.slp'])
+            game_files += [os.path.join(root,x) for x in files if x[-4:] == '.slp']
     except NameError:
         print("Invalid Path")
+    print(len(game_files))
     return game_files
 
 def check_parsed(games):
